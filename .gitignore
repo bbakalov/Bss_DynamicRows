@@ -84,3 +84,15 @@ atlassian*
 /php.ini.sample
 /.htaccess.sample
 /LICENSE_AFL.txt
+/app/.htaccess
+/app/functions.php
+/app/bootstrap.php
+/app/autoload.php
+/lib/
+/phpserver/
+/bin/
+/setup/
+/update/
+/generated/
+/pub/
+/dev/
