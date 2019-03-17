@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bforward_PickUpProductFromShop::helloworld" title="Eltrino" module="Bforward_PickUpProductFromShop" sortOrder="51" resource="Bforward_PickUpProductFromShop::eltrino"/>
+        <add id="Bforward_PickUpProductFromShop::shoplist" title="Shop List" module="Bforward_PickUpProductFromShop" sortOrder="10" action="bforward_pickupproductfromshop/shoplist" resource="Bforward_PickUpProductFromShop::shoplist" parent="Bforward_PickUpProductFromShop::helloworld"/>
+        <!--<add id="Bforward_PickUpProductFromShop::shoplist_configuration" title="Configuration" module="Bforward_PickUpProductFromShop" sortOrder="99" parent="Bforward_PickUpProductFromShop::helloworld" action="adminhtml/system_config/edit/section/helloworld" resource="Bforward_PickUpProductFromShop::helloworld_configuration"/>-->
+    </menu>
+</config>
