@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Bforward_PickUpProductFromShop::helloworld" title="Eltrino" module="Bforward_PickUpProductFromShop" sortOrder="51" resource="Bforward_PickUpProductFromShop::eltrino"/>
-        <add id="Bforward_PickUpProductFromShop::shoplist" title="Shop List" module="Bforward_PickUpProductFromShop" sortOrder="10" action="bforward_pickupproductfromshop/shoplist" resource="Bforward_PickUpProductFromShop::shoplist" parent="Bforward_PickUpProductFromShop::helloworld"/>
-        <!--<add id="Bforward_PickUpProductFromShop::shoplist_configuration" title="Configuration" module="Bforward_PickUpProductFromShop" sortOrder="99" parent="Bforward_PickUpProductFromShop::helloworld" action="adminhtml/system_config/edit/section/helloworld" resource="Bforward_PickUpProductFromShop::helloworld_configuration"/>-->
+        <add id="Bforward_PickUpProductFromShop::eltrino" title="Eltrino" module="Bforward_PickUpProductFromShop" sortOrder="55"
+             resource="Bforward_PickUpProductFromShop::eltrino"/>
+        <add id="Bforward_PickUpProductFromShop::title" title="Pick Up Product From Shop" module="Bforward_PickUpProductFromShop"
+             parent="Bforward_PickUpProductFromShop::eltrino" resource="Bforward_PickUpProductFromShop::test"/>
+        <add id="Bforward_PickUpProductFromShop::shoplist" title="Shop List" module="Bforward_PickUpProductFromShop"
+             action="bforward_pickupproductfromshop/shoplist" resource="Bforward_PickUpProductFromShop::shoplist" parent="Bforward_PickUpProductFromShop::title"/>
+        <add id="Bforward_PickUpProductFromShop::shoplist_configuration" title="Configuration" module="Bforward_PickUpProductFromShop"
+             action="adminhtml/system_config/edit/section/helloworld" parent="Bforward_PickUpProductFromShop::title" resource="Bforward_PickUpProductFromShop::shoplist_configuration"/>
     </menu>
 </config>
