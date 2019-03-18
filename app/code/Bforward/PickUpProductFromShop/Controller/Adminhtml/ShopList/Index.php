@@ -23,4 +23,14 @@ class Index extends \Magento\Backend\App\Action
 
         return $resultPage;
     }
+
+    /**
+     * Check Grid List Permission.
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Bforward_PickUpProductFromShop::shoplist');
+    }
 }

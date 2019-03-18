@@ -3,12 +3,12 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="bforward_pickupproductfromshop_shoplist_listing_data_source" xsi:type="string">
-                    Bforward\PickUpProductFromShop\Model\ResourceModel\ShopList\Collection
+                    Bforward\PickUpProductFromShop\Model\ResourceModel\ShopList\Grid\Collection
                 </item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="Bforward\PickUpProductFromShop\Model\ResourceModel\ShopList\Collection"
+    <virtualType name="Bforward\PickUpProductFromShop\Model\ResourceModel\ShopList\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">shop_list</argument>
