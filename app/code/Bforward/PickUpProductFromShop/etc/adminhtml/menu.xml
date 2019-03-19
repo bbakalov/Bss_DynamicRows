@@ -8,6 +8,6 @@
         <add id="Bforward_PickUpProductFromShop::shoplist" title="Shop List" module="Bforward_PickUpProductFromShop"
              action="bforward_pickupproductfromshop/shoplist" resource="Bforward_PickUpProductFromShop::shoplist" parent="Bforward_PickUpProductFromShop::title"/>
         <add id="Bforward_PickUpProductFromShop::shoplist_configuration" title="Configuration" module="Bforward_PickUpProductFromShop"
-             action="adminhtml/system_config/edit/section/helloworld" parent="Bforward_PickUpProductFromShop::title" resource="Bforward_PickUpProductFromShop::shoplist_configuration"/>
+             action="adminhtml/system_config/edit/section/pickupproductfromshop" parent="Bforward_PickUpProductFromShop::title" resource="Bforward_PickUpProductFromShop::shoplist_configuration"/>
     </menu>
 </config>
