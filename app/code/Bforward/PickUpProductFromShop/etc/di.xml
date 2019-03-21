@@ -1,4 +1,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Bforward\PickUpProductFromShop\Api\OfficeManagementInterface" type="Bforward\PickUpProductFromShop\Model\OfficeManagement" />
+    <preference for="Bforward\PickUpProductFromShop\Api\Data\OfficeInterface" type="Bforward\PickUpProductFromShop\Model\Office" />
+    <type name="Magento\Quote\Model\ShippingAssignment">
+        <plugin name="carrier-office-plugin" type="Bforward\PickUpProductFromShop\Plugin\Quote\ShippingAssignmentPlugin" sortOrder="1" disabled="false"/>
+    </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

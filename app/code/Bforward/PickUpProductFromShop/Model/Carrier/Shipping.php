@@ -7,10 +7,14 @@ use Magento\Shipping\Model\Rate\Result;
 class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     \Magento\Shipping\Model\Carrier\CarrierInterface
 {
+    const CARRIER_CODE = 'shipfromshop';
+
+    const METHOD_CODE = 'shipfromshop';
+
     /**
      * @var string
      */
-    protected $_code = 'shipfromshop';
+    protected $_code = self::CARRIER_CODE;
 
     /**
      * @var \Magento\Shipping\Model\Rate\ResultFactory
