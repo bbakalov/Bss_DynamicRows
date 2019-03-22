@@ -12,7 +12,7 @@ define(
                 //TODO: send products IDs for generating list
                 var params = {postcode: quote.shippingAddress().postcode, city: quote.shippingAddress().city};
                 var urls = {
-                    'default': '/module/get-pickupshop-list/:postcode/:city'
+                    'default': '/module/get-pickupshop-list'
                 };
                 return this.getUrl(urls, params);
             },

@@ -7,8 +7,8 @@
         <!--TODO: rename office list to shop list-->
         <select id="carrier-office-list" data-bind="options: offices(),
                                             value: selectedOffice,
-                                            optionsValue: 'name',
-                                            optionsText: function(item){return item.location + ' (' + item.name +')';}">
+                                            optionsValue: 'id',
+                                            optionsText: function(item){return item.name + ' (' + item.id +')';}">
         </select>
     </div>
 </div>

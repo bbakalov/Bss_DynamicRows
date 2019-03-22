@@ -69,7 +69,7 @@ define([
             if (this.selectedOffice()) {
                 for (var i in this.offices()) {
                     var m = this.offices()[i];
-                    if (m.name == this.selectedOffice()) {
+                    if (m.id == this.selectedOffice()) {
                         office = m;
                     }
                 }
