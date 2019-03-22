@@ -1,12 +1,11 @@
-<div id="carrier-office-list-wrapper" data-bind="visible: selectedMethod() == 'shipfromshop_shipfromshop'">
-    <p data-bind="visible: !showOfficeSelection(), i18n: 'Please provide postcode to see nearest offices'"></p>
-    <div data-bind="visible: showOfficeSelection()">
+<div id="carrier-shop-list-wrapper" data-bind="visible: selectedMethod() == 'shipfromshop_shipfromshop'">
+    <p data-bind="visible: !showShopListSelection(), i18n: 'Do not have shops with products. Please contact us.'"></p>
+    <div data-bind="visible: showShopListSelection()">
         <p>
-            <span data-bind="i18n: 'Select pickup office.'"></span>
+            <span data-bind="i18n: 'Select pickup shop.'"></span>
         </p>
-        <!--TODO: rename office list to shop list-->
-        <select id="carrier-office-list" data-bind="options: offices(),
-                                            value: selectedOffice,
+        <select id="carrier-pickupshop-list" data-bind="options: shops(),
+                                            value: selectedShop,
                                             optionsValue: 'id',
                                             optionsText: function(item){return item.name + ' (' + item.id +')';}">
         </select>

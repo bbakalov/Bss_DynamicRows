@@ -8,7 +8,7 @@ define(
     function(customer, quote, urlBuilder, utils) {
         "use strict";
         return {
-            getUrlForOfficeList: function(quote, limit) {
+            getUrlForShopList: function(quote, limit) {
                 //TODO: send products IDs for generating list
                 var params = {postcode: quote.shippingAddress().postcode, city: quote.shippingAddress().city};
                 var urls = {

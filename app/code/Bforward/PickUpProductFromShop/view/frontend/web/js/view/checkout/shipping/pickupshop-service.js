@@ -5,10 +5,10 @@ define(
         'Magento_Customer/js/model/customer',
         'mage/storage',
         'Magento_Checkout/js/model/shipping-service',
-        'Bforward_PickUpProductFromShop/js/view/checkout/shipping/model/office-registry',
+        'Bforward_PickUpProductFromShop/js/view/checkout/shipping/model/shop-registry',
         'Magento_Checkout/js/model/error-processor'
     ],
-    function (resourceUrlManager, quote, customer, storage, shippingService, officeRegistry, errorProcessor) {
+    function (resourceUrlManager, quote, customer, storage, shippingService, shopRegistry, errorProcessor) {
         'use strict';
 
         return {
@@ -16,22 +16,22 @@ define(
              * Get nearest machine list for specified address
              * @param {Object} address
              */
-            getOfficeList: function (address, form) {
+            getShopList: function (address, form) {
                 shippingService.isLoading(true);
                 var cacheKey = address.getCacheKey(),
-                    cache = officeRegistry.get(cacheKey),
-                    serviceUrl = resourceUrlManager.getUrlForOfficeList(quote);
+                    cache = shopRegistry.get(cacheKey),
+                    serviceUrl = resourceUrlManager.getUrlForShopList(quote);
 
                 if (cache) {
-                    form.setOfficeList(cache);
+                    form.setShopList(cache);
                     shippingService.isLoading(false);
                 } else {
                     storage.get(
                         serviceUrl, false
                     ).done(
                         function (result) {
-                            officeRegistry.set(cacheKey, result);
-                            form.setOfficeList(result);
+                            shopRegistry.set(cacheKey, result);
+                            form.setShopList(result);
                         }
                     ).fail(
                         function (response) {

@@ -4,9 +4,9 @@ define([
     'uiComponent',
     'Magento_Checkout/js/model/quote',
     'Magento_Checkout/js/model/shipping-service',
-    'Bforward_PickUpProductFromShop/js/view/checkout/shipping/office-service',
+    'Bforward_PickUpProductFromShop/js/view/checkout/shipping/pickupshop-service',
     'mage/translate'
-], function ($, ko, Component, quote, shippingService, officeService, t) {
+], function ($, ko, Component, quote, shippingService, pickupshopService, t) {
     'use strict';
 
     return Component.extend({
@@ -15,17 +15,16 @@ define([
         },
 
         initialize: function (config) {
-            this.offices = ko.observableArray();
-            this.selectedOffice = ko.observable();
+            this.shops = ko.observableArray();
+            this.selectedShop = ko.observable();
             this._super();
         },
 
         initObservable: function () {
             this._super();
 
-            this.showOfficeSelection = ko.computed(function() {
-                console.log(this.offices().length)
-                return this.offices().length != 0
+            this.showShopListSelection = ko.computed(function() {
+                return this.shops().length != 0
             }, this);
 
             this.selectedMethod = ko.computed(function() {
@@ -37,52 +36,52 @@ define([
             quote.shippingMethod.subscribe(function(method) {
                 var selectedMethod = method != null ? method.carrier_code + '_' + method.method_code : null;
                 if (selectedMethod == 'shipfromshop_shipfromshop') {
-                    this.reloadOffices();
+                    this.reloadShops();
                 }
             }, this);
 
-            this.selectedOffice.subscribe(function(office) {
+            this.selectedShop.subscribe(function(shop) {
                 if (quote.shippingAddress().extensionAttributes == undefined) {
                     quote.shippingAddress().extensionAttributes = {};
                 }
-                quote.shippingAddress().extensionAttributes.shipfromshop = office;
+                quote.shippingAddress().extensionAttributes.shipfromshop = shop;
             });
 
 
             return this;
         },
 
-        setOfficeList: function(list) {
-            this.offices(list);
+        setShopList: function(list) {
+            this.shops(list);
         },
 
-        reloadOffices: function() {
-            officeService.getOfficeList(quote.shippingAddress(), this);
-            var defaultOffice = this.offices()[0];
-            if (defaultOffice) {
-                this.selectedOffice(defaultOffice);
+        reloadShops: function() {
+            pickupshopService.getShopList(quote.shippingAddress(), this);
+            var defaultShop = this.shops()[0];
+            if (defaultShop) {
+                this.selectedShop(defaultShop);
             }
         },
 
-        getOffice: function() {
-            var office;
-            if (this.selectedOffice()) {
-                for (var i in this.offices()) {
-                    var m = this.offices()[i];
-                    if (m.id == this.selectedOffice()) {
-                        office = m;
+        getShop: function () {
+            var shop;
+            if (this.selectedShop()) {
+                for (var i in this.shops()) {
+                    var shopOption = this.shops()[i];
+                    if (shopOption.id == this.selectedShop()) {
+                        shop = shopOption;
                     }
                 }
             }
             else {
-                office = this.offices()[0];
+                shop = this.shops()[0];
             }
 
-            return office;
+            return shop;
         },
 
         initSelector: function() {
-            var startOffice = this.getOffice();
+            var startShop = this.getShop();
         }
     });
 });

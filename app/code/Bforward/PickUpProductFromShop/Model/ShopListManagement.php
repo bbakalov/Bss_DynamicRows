@@ -2,20 +2,19 @@
 
 namespace Bforward\PickUpProductFromShop\Model;
 
-use Bforward\PickUpProductFromShop\Api\Data\OfficeInterfaceFactory;
 use Bforward\PickUpProductFromShop\Api\ShopListManagementInterface;
 
 class ShopListManagement implements ShopListManagementInterface
 {
-    protected $officeFactory;
     /**
      * @var \Bforward\PickUpProductFromShop\Model\ShopListFactory
      */
     private $shopList;
 
     /**
-     * OfficeManagement constructor.
-     * @param OfficeInterfaceFactory $officeInterfaceFactory
+     * ShopListManagement constructor.
+     *
+     * @param \Bforward\PickUpProductFromShop\Model\ShopListFactory $shopList
      */
     public function __construct(ShopListFactory $shopList)
     {
@@ -23,9 +22,7 @@ class ShopListManagement implements ShopListManagementInterface
     }
 
     /**
-     * Get offices for the given postcode and city
-     *
-     * @return \Bforward\PickUpProductFromShop\Api\Data\OfficeInterface[]
+     * @return array|\Bforward\PickUpProductFromShop\Api\Data\ShopListInterface[]
      */
     public function fetchShops()
     {

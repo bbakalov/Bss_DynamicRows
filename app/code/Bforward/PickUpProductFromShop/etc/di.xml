@@ -2,7 +2,7 @@
     <preference for="Bforward\PickUpProductFromShop\Api\Data\ShopListInterface" type="Bforward\PickUpProductFromShop\Model\ShopList" />
     <preference for="Bforward\PickUpProductFromShop\Api\ShopListManagementInterface" type="Bforward\PickUpProductFromShop\Model\ShopListManagement" />
     <type name="Magento\Quote\Model\ShippingAssignment">
-        <plugin name="carrier-office-plugin" type="Bforward\PickUpProductFromShop\Plugin\Quote\ShippingAssignmentPlugin" sortOrder="1" disabled="false"/>
+        <plugin name="carrier-pickupshop-plugin" type="Bforward\PickUpProductFromShop\Plugin\Quote\ShippingAssignmentPlugin" sortOrder="1" disabled="false"/>
     </type>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
