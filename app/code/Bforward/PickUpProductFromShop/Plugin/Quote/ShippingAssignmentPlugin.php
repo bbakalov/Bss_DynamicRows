@@ -26,10 +26,9 @@ class ShippingAssignmentPlugin
             && $address->getExtensionAttributes()
             && $address->getExtensionAttributes()->getShipfromshop()
         ) {
-            $address->setCarrierOffice($address->getExtensionAttributes()->getShipfromshop());
+            $address->setPickupShopId($address->getExtensionAttributes()->getShipfromshop());
         } elseif ($method !== Shipping::CARRIER_CODE . '_' . Shipping::METHOD_CODE) {
-            //reset inpost machine when changing shipping method
-            $address->setCarrierOffice(null);
+            $address->setPickupShopId(null);
         }
 
         return [$value];
