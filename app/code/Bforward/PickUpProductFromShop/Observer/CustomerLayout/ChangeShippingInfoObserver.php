@@ -32,7 +32,7 @@ class ChangeShippingInfoObserver implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        if ($observer->getData('full_action_name') === 'sales_order_view') {
+        if ($observer->getData('full_action_name') !== 'sales_order_view') {
             return;
         }
 
