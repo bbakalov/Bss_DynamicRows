@@ -23,8 +23,6 @@ class ShopList extends \Magento\Framework\Model\AbstractModel implements \Magent
 
     public function getDefaultValues()
     {
-        $values = [];
-
-        return $values;
+        return [];
     }
 }

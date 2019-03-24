@@ -1,6 +1,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Bforward\PickUpProductFromShop\Api\Data\ShopListInterface" type="Bforward\PickUpProductFromShop\Model\ShopList" />
     <preference for="Bforward\PickUpProductFromShop\Api\ShopListManagementInterface" type="Bforward\PickUpProductFromShop\Model\ShopListManagement" />
+    <preference for="Magento\Sales\Block\Adminhtml\Order\AbstractOrder" type="Bforward\PickUpProductFromShop\Block\Adminhtml\Order\AbstractOrder" />
+    <preference for="Magento\Sales\Block\Order\Info" type="Bforward\PickUpProductFromShop\Block\Order\Info" />
     <type name="Magento\Quote\Model\ShippingAssignment">
         <plugin name="carrier-pickupshop-plugin" type="Bforward\PickUpProductFromShop\Plugin\Quote\ShippingAssignmentPlugin" sortOrder="1" disabled="false"/>
     </type>
