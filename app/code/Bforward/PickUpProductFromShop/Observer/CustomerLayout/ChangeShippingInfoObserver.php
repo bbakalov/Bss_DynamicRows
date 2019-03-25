@@ -19,11 +19,6 @@ class ChangeShippingInfoObserver implements ObserverInterface
 {
 
     /**
-     * Temando provides additional order details compared to the default carriers:
-     * - collection point address
-     * - pickup location address
-     * Apply a custom template that displays these data items.
-     *
      * - event: layout_generate_blocks_after
      *
      * @param Observer $observer

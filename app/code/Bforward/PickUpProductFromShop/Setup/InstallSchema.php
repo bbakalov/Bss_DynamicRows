@@ -121,6 +121,18 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
             Table::TYPE_INTEGER,
             null,
             ['nullable' => false, 'unsigned' => true]
+        )->addColumn(
+            'qty',
+            Table::TYPE_DECIMAL,
+            null,
+            [
+                Table::OPTION_UNSIGNED => false,
+                Table::OPTION_NULLABLE => false,
+                Table::OPTION_DEFAULT => 0,
+                Table::OPTION_PRECISION => 10,
+                Table::OPTION_SCALE => 4,
+            ],
+            'Quantity'
         )->addColumn('created_at',
             Table::TYPE_TIMESTAMP,
             null,

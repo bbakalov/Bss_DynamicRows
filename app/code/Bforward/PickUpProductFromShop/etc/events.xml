@@ -7,4 +7,7 @@
     <event name="layout_generate_blocks_after">
         <observer name="bforward_pickupproductfromshop_change_shipping_info" instance="Bforward\PickUpProductFromShop\Observer\CustomerLayout\ChangeShippingInfoObserver"/>
     </event>
+    <event name="catalog_product_save_after">
+        <observer name="product_label" instance="Bforward\PickUpProductFromShop\Observer\Product\CatalogProductSaveAfterObserver" />
+    </event>
 </config>
