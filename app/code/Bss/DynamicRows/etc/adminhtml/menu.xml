@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bss_DynamicRows::dynamic_rows" title="Dynamic Rows" module="Bss_DynamicRows" sortOrder="99"
+             action="bss/row/index/scope/stores" parent="Magento_Backend::system_convert"
+             resource="Bss_DynamicRows::dynamic_rows"/>
+    </menu>
+</config>
