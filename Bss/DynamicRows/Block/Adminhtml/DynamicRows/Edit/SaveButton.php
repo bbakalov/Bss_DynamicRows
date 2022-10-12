@@ -14,6 +14,9 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
  */
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function getButtonData()
     {
         $url = $this->getUrl('bss/row/save');
