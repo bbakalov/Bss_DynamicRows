@@ -56,8 +56,7 @@
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
                         <item name="label" xsi:type="string" translate="true">Dynamic Rows</item>
-                        <item name="component" xsi:type="string" translate="true">Magento_Ui/js/dynamic-rows/record
-                        </item>
+                        <item name="component" xsi:type="string" translate="true">Magento_Ui/js/dynamic-rows/record</item>
                         <item name="isTemplate" xsi:type="boolean">true</item>
                         <item name="is_collection" xsi:type="boolean">true</item>
                         <item name="showFallbackReset" xsi:type="boolean">false</item>
@@ -69,7 +68,6 @@
                             <item name="dataType" xsi:type="string">text</item>
                             <item name="label" xsi:type="string" translate="true">ID</item>
                             <item name="visible" xsi:type="boolean">false</item>
-                            <!--<item name="dataType" xsi:type="string">text</item>-->
                             <item name="formElement" xsi:type="string">input</item>
                             <item name="dataScope" xsi:type="string">row_id</item>
                         </item>
@@ -120,6 +118,9 @@
                                 <item name="dateFormat" xsi:type="string">y-MM-dd</item>
                             </item>
                             <item name="sortOrder" xsi:type="string">30</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
                         </item>
                     </argument>
                 </field>
@@ -129,10 +130,9 @@
                             <item name="componentType" xsi:type="string">actionDelete</item>
                             <item name="dataType" xsi:type="string">text</item>
                             <item name="fit" xsi:type="boolean">false</item>
-                            <item name="label" xsi:type="string">Actions</item>
+<!--                            <item name="label" xsi:type="string">Actions</item>-->
                             <item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
-                            <item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete
-                            </item>
+                            <item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete</item>
                         </item>
                     </argument>
                 </actionDelete>

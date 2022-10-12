@@ -1,35 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bss\DynamicRows\Model\Source;
 
+use Magento\Framework\Data\OptionSourceInterface;
 
-
-class Sex implements \Magento\Framework\Option\ArrayInterface
-
+/**
+ * Class Sex
+ *
+ * @package Bss\DynamicRows\Model\Source
+ */
+class Sex implements OptionSourceInterface
 {
-
+    /**
+     * @return array[]
+     */
     public function toOptionArray()
-
     {
-
-        $yesNoArray[] = [
-
-            'label' => 'Male',
-
-            'value' => 0,
-
+        return [
+            ['value' => 0, 'label' => 'Male'],
+            ['value' => 1, 'label' => 'Female'],
         ];
-
-        $yesNoArray[] = [
-
-            'label' => 'Female',
-
-            'value' => 1,
-
-        ];
-
-        return $yesNoArray;
-
     }
-
 }

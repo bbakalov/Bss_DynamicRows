@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bss_dynamic_rows" resource="default" engine="innodb" comment="Bss Dynamic Rows Table">
+        <column xsi:type="int" name="row_id" unsigned="true" nullable="false" identity="true" comment="Row ID"/>
+        <column xsi:type="text" name="row_name" nullable="false" comment="Row Name"/>
+        <column xsi:type="date" name="birthday" nullable="false" comment="Date of birth"/>
+        <column xsi:type="smallint" name="sex" unsigned="true" nullable="false" comment="Sex"/>
+        <column xsi:type="int" name="position" unsigned="true" nullable="false" default="0" comment="Position"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="row_id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,44 +1,70 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bss\DynamicRows\Controller\Adminhtml\Row;
 
-class Save extends \Magento\Backend\App\Action
+use Bss\DynamicRows\Model\DynamicRowsFactory as DynamicRowsModelFactory;
+use Bss\DynamicRows\Model\ResourceModel\DynamicRowsFactory as DynamicRowsResourceModelFactory;
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+
+/**
+ * Class Save
+ *
+ * @package Bss\DynamicRows\Controller\Adminhtml\Row
+ */
+class Save extends Action
 {
+    protected $dynamicRowsModelFactory;
 
-    protected $dynamicRow;
-    protected $dynamicRowResource;
+    protected $dynamicRowsResourceModelFactory;
 
+    /**
+     * @param Context                         $context
+     * @param DynamicRowsModelFactory         $dynamicRowsModelFactory
+     * @param DynamicRowsResourceModelFactory $dynamicRowsResourceModelFactory
+     */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Bss\DynamicRows\Model\DynamicRowsFactory $dynamicRowFactory,
-        \Bss\DynamicRows\Model\ResourceModel\DynamicRowsFactory $dynamicRowResource
+        Context $context,
+        DynamicRowsModelFactory $dynamicRowsModelFactory,
+        DynamicRowsResourceModelFactory $dynamicRowsResourceModelFactory
     ) {
         parent::__construct($context);
-        $this->dynamicRow         = $dynamicRowFactory;
-        $this->dynamicRowResource = $dynamicRowResource;
+        $this->dynamicRowsModelFactory         = $dynamicRowsModelFactory;
+        $this->dynamicRowsResourceModelFactory = $dynamicRowsResourceModelFactory;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function execute()
     {
         try {
-            $dynamicRowResource = $this->dynamicRowResource->create();
-            $dynamicRowData     = $this->getRequest()->getParam('dynamic_rows_container');
-            $dynamicRowResource->deleteDynamicRows();
-            if (is_array($dynamicRowData) && !empty($dynamicRowData)) {
+            $dynamicRowResourceModel = $this->dynamicRowsResourceModelFactory->create();
+            $dynamicRowData          = $this->getRequest()->getParam('dynamic_rows_container');
+            $dynamicRowResourceModel->deleteDynamicRows();
+
+            if (\is_array($dynamicRowData) && !empty($dynamicRowData)) {
                 foreach ($dynamicRowData as $dynamicRowDatum) {
-                    $model = $this->dynamicRow->create();
+                    $dynamicRowsModel = $this->dynamicRowsModelFactory->create();
                     unset($dynamicRowDatum['row_id']);
-                    $model->addData($dynamicRowDatum);
-                    $model->save();
+                    $dynamicRowsModel->addData($dynamicRowDatum);
+                    $dynamicRowsModel->save();
                 }
             }
+
             $this->messageManager->addSuccessMessage(__('Rows have been saved successfully'));
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__($e->getMessage()));
         }
+
         $this->_redirect('*/*/index/scope/stores');
     }
 
+    /**
+     * @inheritDoc
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Bss_DynamicRows::dynamic_rows');
