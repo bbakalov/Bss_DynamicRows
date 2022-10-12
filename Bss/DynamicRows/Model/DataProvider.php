@@ -8,6 +8,11 @@ use Bss\DynamicRows\Model\ResourceModel\DynamicRows\Collection;
 use Bss\DynamicRows\Model\ResourceModel\DynamicRows\CollectionFactory;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
+/**
+ * Class DataProvider
+ *
+ * @package Bss\DynamicRows\Model
+ */
 class DataProvider extends AbstractDataProvider
 {
     protected $loadedData;
