@@ -4,6 +4,11 @@
 
 * Compatible: Magento 2.1, 2.2, 2.3
 
+### How to install Bss_DynamicRows module
+[Download](https://github.com/bbakalov/Bss_DynamicRows/archive/refs/heads/master.zip) this module and put to **app/code** folder
+
+---
+
 DynamicRows components are a list of records where users can add new records, edit their records, change their display positions, and navigate through the collection.
 We can see the DynamicRows in some of the default pages in Magento 2 Admin Panel.
 
